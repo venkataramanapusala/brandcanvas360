@@ -36,9 +36,9 @@ const menuItems: MenuItem[] = [
 
 function Logo() {
   return (
-    <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="BrandCanvas360 home">
-      <img src="/brandcanvas-logo-v2.png" className="brand-logo-mark h-10 w-auto" alt="BrandCanvas360 logo" />
-      <img src="/brandcanvas-title.png" className="brand-logo-title h-7 w-auto" alt="BrandCanvas360 Digital Marketing Agency" />
+    <Link href="/" className="flex shrink-0 items-center gap-3.5 sm:gap-4" aria-label="BrandCanvas360 home">
+      <img src="/brandcanvas-logo-v2.png" className="brand-logo-mark" alt="" aria-hidden="true" />
+      <img src="/brandcanvas-title.png" className="brand-logo-title" alt="BrandCanvas360 Digital Marketing Agency" />
     </Link>
   );
 }
@@ -69,13 +69,13 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-50 transition-colors duration-300 ${
-        isScrolled ? 'border-b border-slate-200 bg-white/90 backdrop-blur-md' : 'bg-transparent'
+        isScrolled ? 'border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-md' : 'bg-white'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-6 py-3 lg:px-8 xl:gap-4 xl:py-4 2xl:gap-6">
+      <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-6 py-3 lg:px-8 xl:gap-4 xl:py-4 2xl:gap-6 2xl:px-0 2xl:py-5">
         <Logo />
 
-        <nav className="hidden 2xl:flex 2xl:items-center 2xl:gap-7">
+        <nav className="hidden xl:flex xl:items-center xl:gap-5 2xl:gap-7">
           {menuItems.map((item) =>
             item.dropdown ? (
               <div key={item.label} className="group relative">
@@ -86,7 +86,7 @@ export default function Header() {
                   {item.label}
                   <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
                 </button>
-                <div className="invisible absolute left-0 top-full w-72 translate-y-2 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div className="invisible absolute left-0 top-full w-72 translate-y-2 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                   {item.dropdown.map((sub) => (
                     <Link
                       key={sub.label}
@@ -94,7 +94,7 @@ export default function Header() {
                       className="block rounded-xl px-4 py-2.5 transition-colors duration-300 hover:bg-white/5"
                     >
                       <span className="block text-sm font-semibold text-slate-900">{sub.label}</span>
-                      {sub.desc && <span className="block text-xs text-muted">{sub.desc}</span>}
+                      {sub.desc && <span className="block text-xs text-slate-500">{sub.desc}</span>}
                     </Link>
                   ))}
                 </div>
@@ -111,10 +111,10 @@ export default function Header() {
           )}
         </nav>
 
-        <div className="hidden shrink-0 2xl:block">
+        <div className="hidden shrink-0 xl:block">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#C91F2B] px-7 py-3.5 text-sm font-bold leading-none text-white shadow-lg shadow-red-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#A81721] focus:outline-none focus:ring-4 focus:ring-red-600/25"
+            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#C91F2B] px-5 py-3 text-sm font-extrabold leading-none text-white shadow-lg shadow-red-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#A81721] focus:outline-none focus:ring-4 focus:ring-red-600/25 2xl:px-6"
           >
             Get Free Audit
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -124,7 +124,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen(true)}
-          className="inline-flex items-center justify-center rounded-lg p-2 text-slate-900 2xl:hidden"
+          className="inline-flex items-center justify-center rounded-lg p-2 text-slate-900 xl:hidden"
           aria-label="Open menu"
         >
           <Menu className="h-7 w-7" />
@@ -132,18 +132,18 @@ export default function Header() {
       </div>
 
       <div
-        className={`fixed inset-0 z-50 bg-black/60 transition-opacity duration-300 2xl:hidden ${
+        className={`fixed inset-0 z-50 bg-black/60 transition-opacity duration-300 xl:hidden ${
           isMobileMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-surface-base shadow-2xl transition-transform duration-300 ease-in-out 2xl:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out xl:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
+        <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
           <Logo />
           <button
             type="button"
@@ -163,7 +163,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => toggleAccordion(item.label)}
-                    className="flex w-full items-center justify-between py-3 text-left text-base font-medium text-slate-900"
+                    className="flex w-full items-center justify-between py-3 text-left text-base font-semibold text-slate-900"
                   >
                     {item.label}
                     <ChevronDown
@@ -196,7 +196,7 @@ export default function Header() {
                   <Link
                     href={item.href ?? '/'}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-3 text-base font-medium text-slate-900"
+                    className="block py-3 text-base font-semibold text-slate-900"
                   >
                     {item.label}
                   </Link>
@@ -210,7 +210,7 @@ export default function Header() {
           <Link
             href="/contact"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-ink-inverse transition-colors duration-300 hover:bg-primaryHover"
+            className="flex w-full items-center justify-center rounded-full bg-[#C91F2B] px-6 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-[#A81721]"
           >
             Get Free Audit
           </Link>

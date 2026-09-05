@@ -57,58 +57,52 @@ export default function Home() {
     <main>
       {/* Hero */}
       <section className="relative section-top-glow overflow-hidden bg-dark">
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
+        <div className="relative z-10 mx-auto grid max-w-[1500px] grid-cols-1 items-center gap-12 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28 2xl:gap-20 2xl:px-0 2xl:py-32">
           <div className="animate-fade-in-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-orange-300">
-              🚀 Top-Rated Digital Marketing Agency
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-bold uppercase tracking-wide text-orange-300">
+              360° Digital Growth Partner
             </span>
 
-            <h1 className="mt-6 font-heading text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-              We Drive <span className="text-gradient">Measurable Growth</span> for Scaling Brands
+            <h1 className="mt-6 max-w-3xl font-heading text-4xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl 2xl:text-8xl">
+              Turn your brand into a <span className="text-gradient">growth engine.</span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-base font-normal leading-relaxed text-slate-600 sm:text-lg">
-              BrandCanvas360 crafts custom SEO, paid media, and content strategies tailored to your
-              business goals — turning clicks into customers and data into decisions that compound
-              growth quarter after quarter.
+            <p className="mt-6 max-w-xl text-base text-slate-300 sm:text-lg">
+              BrandCanvas360 helps businesses attract attention, build trust and generate measurable
+              growth through smart digital marketing, creative content and performance-driven strategies.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#C91F2B] px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-red-600/25 transition-all duration-300 hover:bg-[#A81721]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-ink-inverse shadow-lg shadow-primary/30 transition-all duration-300 hover:bg-primaryHover hover:shadow-primary/50"
               >
-                Get Free Audit
+                Let&apos;s Grow Together
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-              <button
-                type="button"
+              <Link
+                href="/services"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-8 py-3.5 text-base font-semibold text-white transition-colors duration-300 hover:border-primary hover:text-primary"
               >
                 <Play className="h-5 w-5" fill="currentColor" />
-                Watch Reel
-              </button>
+                Explore Services
+              </Link>
             </div>
 
             <div className="mt-8 flex items-center gap-4">
-              <div className="flex -space-x-2 overflow-hidden">
-                {[
-                  'bg-[radial-gradient(circle_at_50%_35%,#f8d1b2_0_18%,transparent_19%),linear-gradient(135deg,#d92d20,#ffb17a)]',
-                  'bg-[radial-gradient(circle_at_50%_35%,#9b5b3f_0_18%,transparent_19%),linear-gradient(135deg,#5b7c99,#d7e5ef)]',
-                  'bg-[radial-gradient(circle_at_50%_35%,#f0b58b_0_18%,transparent_19%),linear-gradient(135deg,#5c2d91,#f49bce)]',
-                  'bg-[radial-gradient(circle_at_50%_35%,#c77b52_0_18%,transparent_19%),linear-gradient(135deg,#167c80,#f5d58b)]',
-                ].map((avatar, i) => (
-                  <div key={i} className={`h-10 w-10 rounded-full border-2 border-surface-base ${avatar}`} aria-hidden="true" />
+              <div className="flex -space-x-3">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="h-10 w-10 rounded-full border-2 border-dark bg-gradient-to-br from-primary to-accent" />
                 ))}
               </div>
-              <p className="text-sm font-normal leading-relaxed text-slate-600">
-                <span className="font-semibold text-slate-900">350+ brands</span> trust us with their growth
+              <p className="text-sm text-slate-300">
+                <span className="font-semibold text-white">350+ brands</span> trust us with their growth
               </p>
             </div>
           </div>
 
           <div className="relative">
-            <div className="hero-command-visual relative aspect-[4/5] w-full scroll-mt-40 overflow-hidden rounded-[2rem] border border-borderStrong bg-surface-card pb-14 shadow-crimson-glow sm:aspect-square sm:pb-16">
+            <div className="hero-command-visual relative aspect-[4/5] w-full scroll-mt-40 overflow-hidden rounded-[2rem] border border-borderStrong bg-surface-card shadow-crimson-glow sm:aspect-square">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgb(255_209_102_/_0.34),transparent_24%),radial-gradient(circle_at_78%_22%,rgb(255_107_74_/_0.30),transparent_30%),linear-gradient(135deg,rgb(255_209_102_/_0.20),rgb(129_32_14_/_0.34)_52%,rgb(36_4_3_/_0.62))]" />
               <div className="absolute inset-x-4 top-6 flex items-center justify-between rounded-2xl border border-white/12 bg-surface-overlay/45 px-4 py-3 backdrop-blur-md sm:inset-x-8 sm:top-8">
                 <div>
@@ -166,7 +160,7 @@ export default function Home() {
               </div>
             </div>
 
-              <div className="absolute bottom-5 right-4 w-max rounded-2xl border border-borderStrong bg-surface-overlay px-4 py-3 shadow-crimson-soft sm:bottom-6 sm:right-6 sm:px-6 sm:py-4">
+            <div className="absolute -bottom-6 left-1/2 w-max -translate-x-1/2 rounded-2xl border border-borderStrong bg-surface-overlay px-5 py-3 shadow-crimson-soft sm:left-auto sm:right-6 sm:translate-x-0 sm:px-6 sm:py-4">
               <p className="text-sm font-bold text-ink-muted">Average Client Result</p>
               <p className="font-heading text-xl font-extrabold text-ink-primary sm:text-2xl">10x ROI Increase</p>
             </div>
