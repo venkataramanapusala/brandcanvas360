@@ -69,7 +69,7 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-50 transition-colors duration-300 ${
-        isScrolled ? 'border-b border-white/10 bg-dark/90 backdrop-blur-md' : 'bg-transparent'
+        isScrolled ? 'border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-md' : 'bg-white'
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-6 py-3 lg:px-8 xl:gap-4 xl:py-4 2xl:gap-6">
@@ -81,20 +81,20 @@ export default function Header() {
               <div key={item.label} className="group relative">
                 <button
                   type="button"
-                  className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-slate-200 transition-colors duration-300 hover:text-primary"
+                  className="flex items-center gap-1 whitespace-nowrap text-sm font-semibold text-slate-700 transition-colors duration-300 hover:text-red-700"
                 >
                   {item.label}
                   <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
                 </button>
-                <div className="invisible absolute left-0 top-full w-72 translate-y-2 rounded-2xl border border-white/10 bg-darkCard p-2 opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div className="invisible absolute left-0 top-full w-72 translate-y-2 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                   {item.dropdown.map((sub) => (
                     <Link
                       key={sub.label}
                       href={sub.href}
                       className="block rounded-xl px-4 py-2.5 transition-colors duration-300 hover:bg-white/5"
                     >
-                      <span className="block text-sm font-semibold text-white">{sub.label}</span>
-                      {sub.desc && <span className="block text-xs text-muted">{sub.desc}</span>}
+                      <span className="block text-sm font-semibold text-slate-900">{sub.label}</span>
+                      {sub.desc && <span className="block text-xs text-slate-500">{sub.desc}</span>}
                     </Link>
                   ))}
                 </div>
@@ -103,7 +103,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href ?? '/'}
-                className="whitespace-nowrap text-sm font-medium text-slate-200 transition-colors duration-300 hover:text-primary"
+                className="whitespace-nowrap text-sm font-semibold text-slate-700 transition-colors duration-300 hover:text-red-700"
               >
                 {item.label}
               </Link>
@@ -114,7 +114,7 @@ export default function Header() {
         <div className="hidden shrink-0 2xl:block">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary px-4 py-2.5 text-sm font-extrabold leading-none text-ink-inverse shadow-crimson-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-primaryHover focus:outline-none focus:ring-4 focus:ring-primary/30 2xl:px-5 2xl:py-3"
+            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#C91F2B] px-5 py-3 text-sm font-extrabold leading-none text-white shadow-lg shadow-red-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#A81721] focus:outline-none focus:ring-4 focus:ring-red-600/25 2xl:px-6"
           >
             Get Free Audit
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -124,7 +124,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen(true)}
-          className="inline-flex items-center justify-center rounded-lg p-2 text-white 2xl:hidden"
+          className="inline-flex items-center justify-center rounded-lg p-2 text-slate-900 2xl:hidden"
           aria-label="Open menu"
         >
           <Menu className="h-7 w-7" />
@@ -139,16 +139,16 @@ export default function Header() {
       />
 
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-dark shadow-2xl transition-transform duration-300 ease-in-out 2xl:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out 2xl:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
+        <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
           <Logo />
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="inline-flex items-center justify-center rounded-lg p-2 text-white"
+            className="inline-flex items-center justify-center rounded-lg p-2 text-slate-900"
             aria-label="Close menu"
           >
             <X className="h-7 w-7" />
@@ -163,7 +163,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => toggleAccordion(item.label)}
-                    className="flex w-full items-center justify-between py-3 text-left text-base font-medium text-white"
+                    className="flex w-full items-center justify-between py-3 text-left text-base font-semibold text-slate-900"
                   >
                     {item.label}
                     <ChevronDown
@@ -196,7 +196,7 @@ export default function Header() {
                   <Link
                     href={item.href ?? '/'}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-3 text-base font-medium text-white"
+                    className="block py-3 text-base font-semibold text-slate-900"
                   >
                     {item.label}
                   </Link>
@@ -210,7 +210,7 @@ export default function Header() {
           <Link
             href="/contact"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-ink-inverse transition-colors duration-300 hover:bg-primaryHover"
+            className="flex w-full items-center justify-center rounded-full bg-[#C91F2B] px-6 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-[#A81721]"
           >
             Get Free Audit
           </Link>

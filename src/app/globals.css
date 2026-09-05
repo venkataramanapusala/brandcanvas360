@@ -58,6 +58,10 @@ html {
 body {
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   background-color: var(--color-surface-base);
+  background-image:
+    radial-gradient(circle at 78% 8%, rgb(129 32 14 / 0.82), transparent 30%),
+    linear-gradient(135deg, #711607 0%, #4b0c05 48%, #1d0503 100%);
+  background-attachment: fixed;
   color: var(--color-text-primary);
   overflow-x: hidden;
 }
@@ -205,9 +209,9 @@ body {
   }
 
   .card-glass {
-    background: rgb(91 18 8 / 0.82);
+    background: linear-gradient(145deg, rgb(255 255 255 / 0.10), rgb(255 255 255 / 0.045));
     border: 1px solid var(--color-border-subtle);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(16px);
   }
 
   .section-top-glow::before {
