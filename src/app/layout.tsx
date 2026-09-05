@@ -72,7 +72,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'DigitalMarketingAgency',
+              '@type': 'ProfessionalService',
               name: 'BrandCanvas360',
               description: 'Digital marketing agency in Vijayawada providing SEO, paid media, social media, content, and web development services.',
               email: 'hello@brandcanvas360.com',
@@ -84,7 +84,10 @@ export default function RootLayout({
                 postalCode: '520015',
                 addressCountry: 'IN',
               },
-              areaServed: 'Vijayawada',
+              areaServed: {
+                '@type': 'City',
+                name: 'Vijayawada',
+              },
               knowsAbout: ['SEO', 'Google Ads', 'Social Media Marketing', 'Content Marketing', 'Web Development'],
             }),
           }}
