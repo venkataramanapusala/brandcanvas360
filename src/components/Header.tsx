@@ -36,9 +36,9 @@ const menuItems: MenuItem[] = [
 
 function Logo() {
   return (
-    <Link href="/" className="flex shrink-0 items-center gap-3.5 sm:gap-4" aria-label="BrandCanvas360 home">
-      <img src="/brandcanvas-logo-v2.png" className="brand-logo-mark" alt="" aria-hidden="true" />
-      <img src="/brandcanvas-title.png" className="brand-logo-title" alt="BrandCanvas360 Digital Marketing Agency" />
+    <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="BrandCanvas360 home">
+      <img src="/brandcanvas-logo-v2.png" className="brand-logo-mark h-10 w-auto" alt="BrandCanvas360 logo" />
+      <img src="/brandcanvas-title.png" className="brand-logo-title h-7 w-auto" alt="BrandCanvas360 Digital Marketing Agency" />
     </Link>
   );
 }
@@ -75,13 +75,13 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-6 py-3 lg:px-8 xl:gap-4 xl:py-4 2xl:gap-6">
         <Logo />
 
-        <nav className="hidden 2xl:flex 2xl:items-center 2xl:gap-6">
+        <nav className="hidden 2xl:flex 2xl:items-center 2xl:gap-7">
           {menuItems.map((item) =>
             item.dropdown ? (
               <div key={item.label} className="group relative">
                 <button
                   type="button"
-                  className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-slate-700 transition-colors duration-300 hover:text-primary"
+                  className="flex items-center gap-1 whitespace-nowrap text-sm font-semibold text-slate-700 transition-colors duration-300 hover:text-red-700"
                 >
                   {item.label}
                   <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
@@ -103,7 +103,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href ?? '/'}
-                className="whitespace-nowrap text-sm font-medium text-slate-700 transition-colors duration-300 hover:text-primary"
+                className="whitespace-nowrap text-sm font-semibold text-slate-700 transition-colors duration-300 hover:text-red-700"
               >
                 {item.label}
               </Link>
@@ -114,7 +114,7 @@ export default function Header() {
         <div className="hidden shrink-0 2xl:block">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary px-4 py-2.5 text-sm font-extrabold leading-none text-ink-inverse shadow-crimson-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-primaryHover focus:outline-none focus:ring-4 focus:ring-primary/30 2xl:px-5 2xl:py-3"
+            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#C91F2B] px-7 py-3.5 text-sm font-bold leading-none text-white shadow-lg shadow-red-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#A81721] focus:outline-none focus:ring-4 focus:ring-red-600/25"
           >
             Get Free Audit
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
