@@ -80,13 +80,13 @@ export default function Home() {
                 Let&apos;s Grow Together
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-              <button
-                type="button"
+              <Link
+                href="/services"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-8 py-3.5 text-base font-semibold text-white transition-colors duration-300 hover:border-primary hover:text-primary"
               >
                 <Play className="h-5 w-5" fill="currentColor" />
                 Explore Services
-              </button>
+              </Link>
             </div>
 
             <div className="mt-8 flex items-center gap-4">
