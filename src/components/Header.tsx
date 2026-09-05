@@ -37,8 +37,8 @@ const menuItems: MenuItem[] = [
 function Logo() {
   return (
     <Link href="/" className="flex shrink-0 items-center gap-3.5 sm:gap-4" aria-label="BrandCanvas360 home">
-      <img src="/brandcanvas-logo-v2.svg" className="brand-logo-mark" alt="" aria-hidden="true" />
-      <img src="/brandcanvas-title.svg" className="brand-logo-title" alt="BrandCanvas360 Digital Marketing Agency" />
+      <img src="/brandcanvas-logo-v2.png" className="brand-logo-mark" alt="" aria-hidden="true" />
+      <img src="/brandcanvas-title.png" className="brand-logo-title" alt="BrandCanvas360 Digital Marketing Agency" />
     </Link>
   );
 }
