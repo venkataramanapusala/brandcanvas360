@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/36f06af9-222f-4183-85b8-a5250cdf44e8/resourceGroups/BrandCanvas/providers/Microsoft.Web/sites/brandcanvas360",
+    "appService.deploySubpath": "."
+}

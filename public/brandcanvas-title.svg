@@ -1,0 +1,23 @@
+<svg width="760" height="112" viewBox="0 0 760 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="titleGradient" x1="0" y1="28" x2="560" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C4202A" />
+      <stop offset="0.44" stop-color="#D43A30" />
+      <stop offset="0.52" stop-color="#FF6B00" />
+      <stop offset="1" stop-color="#FF7A1A" />
+    </linearGradient>
+    <linearGradient id="agencyGradient" x1="86" y1="84" x2="490" y2="84" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF8F2" stop-opacity="0.74" />
+      <stop offset="1" stop-color="#FFD3C3" stop-opacity="0.68" />
+    </linearGradient>
+    <filter id="softDepth" x="-8" y="-8" width="776" height="128" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.2" flood-color="#240403" flood-opacity="0.38" />
+    </filter>
+  </defs>
+
+  <g filter="url(#softDepth)">
+    <text x="0" y="55" fill="url(#titleGradient)" font-family="Plus Jakarta Sans, Montserrat, Arial, sans-serif" font-size="54" font-weight="700" letter-spacing="11">BRANDCANVAS</text>
+    <text x="577" y="55" fill="#FF7A1A" font-family="Plus Jakarta Sans, Montserrat, Arial, sans-serif" font-size="23" font-weight="800" letter-spacing="1" transform="rotate(-90 577 55)">360</text>
+    <text x="84" y="95" fill="url(#agencyGradient)" font-family="Plus Jakarta Sans, Montserrat, Arial, sans-serif" font-size="15" font-weight="800" letter-spacing="15">DIGITAL MARKETING AGENCY</text>
+  </g>
+</svg>
