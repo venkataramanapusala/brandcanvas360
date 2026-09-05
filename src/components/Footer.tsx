@@ -34,11 +34,12 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2.5" aria-label="BrandCanvas360 home">
               <span className="font-heading text-2xl font-bold leading-none tracking-tight">
-                <span className="text-slate-950">BrandCanvas</span>
-                <sup className="ml-0.5 text-xs font-bold text-brand-base">360</sup>
+                <span className="text-brand-base">Brand</span>
+                <span className="text-accent">Canvas</span>
+                <sup className="ml-0.5 text-xs font-bold text-accent">360</sup>
               </span>
             </Link>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-500">
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">
               We help ambitious brands turn digital marketing into their strongest growth channel — with
               data-driven SEO, paid media, content, and web strategies built to convert.
             </p>
