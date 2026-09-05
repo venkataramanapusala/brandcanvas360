@@ -54,19 +54,22 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${plusJakartaSans.variable} bg-dark font-sans text-slate-300 antialiased`}
       >
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-SC5C3F4WB8"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-SC5C3F4WB8');
-          `}
-        </Script>
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-SC5C3F4WB8"
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-SC5C3F4WB8');
+              `}
+            </Script>
+          </>
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

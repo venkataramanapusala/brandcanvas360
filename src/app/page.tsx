@@ -57,13 +57,13 @@ export default function Home() {
     <main>
       {/* Hero */}
       <section className="relative section-top-glow overflow-hidden bg-dark">
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
+        <div className="relative z-10 mx-auto grid max-w-[1500px] grid-cols-1 items-center gap-12 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28 2xl:gap-20 2xl:px-0 2xl:py-32">
           <div className="animate-fade-in-up">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-bold uppercase tracking-wide text-orange-300">
               360° Digital Growth Partner
             </span>
 
-            <h1 className="mt-6 font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 max-w-3xl font-heading text-4xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl 2xl:text-8xl">
               Turn your brand into a <span className="text-gradient">growth engine.</span>
             </h1>
 

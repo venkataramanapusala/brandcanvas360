@@ -115,16 +115,16 @@ body {
 
 @media (min-width: 1536px) {
   .brand-logo-mark {
-    width: 96px;
-    height: 96px;
-    max-width: 96px;
-    flex-basis: 96px;
+    width: 108px;
+    height: 108px;
+    max-width: 108px;
+    flex-basis: 108px;
   }
 
   .brand-logo-title {
-    width: 380px;
-    max-width: 380px;
-    flex-basis: 380px;
+    width: 400px;
+    max-width: 400px;
+    flex-basis: 400px;
   }
 }
 

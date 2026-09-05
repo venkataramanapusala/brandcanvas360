@@ -37,8 +37,8 @@ const menuItems: MenuItem[] = [
 function Logo() {
   return (
     <Link href="/" className="flex shrink-0 items-center gap-3.5 sm:gap-4" aria-label="BrandCanvas360 home">
-      <img src="/brandcanvas-logo-v2.png" className="brand-logo-mark" alt="" aria-hidden="true" />
-      <img src="/brandcanvas-title.png" className="brand-logo-title" alt="BrandCanvas360 Digital Marketing Agency" />
+      <img src="/brandcanvas-logo-v2.svg" className="brand-logo-mark" alt="" aria-hidden="true" />
+      <img src="/brandcanvas-title.svg" className="brand-logo-title" alt="BrandCanvas360 Digital Marketing Agency" />
     </Link>
   );
 }
@@ -72,10 +72,10 @@ export default function Header() {
         isScrolled ? 'border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-md' : 'bg-white'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-6 py-3 lg:px-8 xl:gap-4 xl:py-4 2xl:gap-6">
+      <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-6 py-3 lg:px-8 xl:gap-4 xl:py-4 2xl:gap-6 2xl:px-0 2xl:py-5">
         <Logo />
 
-        <nav className="hidden 2xl:flex 2xl:items-center 2xl:gap-6">
+        <nav className="hidden xl:flex xl:items-center xl:gap-5 2xl:gap-7">
           {menuItems.map((item) =>
             item.dropdown ? (
               <div key={item.label} className="group relative">
@@ -111,7 +111,7 @@ export default function Header() {
           )}
         </nav>
 
-        <div className="hidden shrink-0 2xl:block">
+        <div className="hidden shrink-0 xl:block">
           <Link
             href="/contact"
             className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#C91F2B] px-5 py-3 text-sm font-extrabold leading-none text-white shadow-lg shadow-red-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#A81721] focus:outline-none focus:ring-4 focus:ring-red-600/25 2xl:px-6"
@@ -124,7 +124,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen(true)}
-          className="inline-flex items-center justify-center rounded-lg p-2 text-slate-900 2xl:hidden"
+          className="inline-flex items-center justify-center rounded-lg p-2 text-slate-900 xl:hidden"
           aria-label="Open menu"
         >
           <Menu className="h-7 w-7" />
@@ -132,14 +132,14 @@ export default function Header() {
       </div>
 
       <div
-        className={`fixed inset-0 z-50 bg-black/60 transition-opacity duration-300 2xl:hidden ${
+        className={`fixed inset-0 z-50 bg-black/60 transition-opacity duration-300 xl:hidden ${
           isMobileMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out 2xl:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out xl:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
