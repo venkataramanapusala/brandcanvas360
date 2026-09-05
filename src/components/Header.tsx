@@ -36,7 +36,7 @@ const menuItems: MenuItem[] = [
 
 function Logo() {
   return (
-    <Link href="/" className="flex shrink-0 items-center gap-3.5 sm:gap-4" aria-label="BrandCanvas360 home">
+    <Link href="/" className="flex shrink-0 items-center gap-1" aria-label="BrandCanvas360 home">
       <img src="/brandcanvas-logo-v2.png" className="brand-logo-mark" alt="" aria-hidden="true" />
       <img src="/brandcanvas-title.png" className="brand-logo-title" alt="BrandCanvas360 Digital Marketing Agency" />
     </Link>
@@ -68,11 +68,11 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-colors duration-300 ${
-        isScrolled ? 'border-b border-white/10 bg-dark/90 backdrop-blur-md' : 'bg-transparent'
+      className={`sticky top-0 z-50 px-3 pt-3 transition-all duration-300 sm:px-5 sm:pt-4 ${
+        isScrolled ? 'bg-transparent' : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-6 py-3 lg:px-8 xl:gap-4 xl:py-4 2xl:gap-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-2.5 shadow-2xl shadow-black/10 backdrop-blur-xl lg:px-5 xl:gap-4">
         <Logo />
 
         <nav className="hidden 2xl:flex 2xl:items-center 2xl:gap-6">
@@ -81,7 +81,7 @@ export default function Header() {
               <div key={item.label} className="group relative">
                 <button
                   type="button"
-                  className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-slate-200 transition-colors duration-300 hover:text-primary"
+                  className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-white/85 transition-colors duration-300 hover:text-white"
                 >
                   {item.label}
                   <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
@@ -103,7 +103,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href ?? '/'}
-                className="whitespace-nowrap text-sm font-medium text-slate-200 transition-colors duration-300 hover:text-primary"
+                className="whitespace-nowrap text-sm font-medium text-white/85 transition-colors duration-300 hover:text-white"
               >
                 {item.label}
               </Link>
@@ -116,7 +116,7 @@ export default function Header() {
             href="/contact"
             className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary px-4 py-2.5 text-sm font-extrabold leading-none text-ink-inverse shadow-crimson-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-primaryHover focus:outline-none focus:ring-4 focus:ring-primary/30 2xl:px-5 2xl:py-3"
           >
-            Get Free Audit
+            Get a Free Strategy
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>

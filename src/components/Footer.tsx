@@ -28,18 +28,17 @@ const footerColumns = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-dark">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-surface-deep/80">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2.5" aria-label="BrandCanvas360 home">
               <span className="font-heading text-2xl font-bold leading-none tracking-tight">
-                <span className="text-red-400">Brand</span>
-                <span className="text-orange-400">Canvas</span>
-                <sup className="ml-0.5 text-xs font-bold text-orange-400">360</sup>
+                <span className="text-white">BrandCanvas</span>
+                <sup className="ml-0.5 text-xs font-bold text-primary">360</sup>
               </span>
             </Link>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/60">
               We help ambitious brands turn digital marketing into their strongest growth channel — with
               data-driven SEO, paid media, content, and web strategies built to convert.
             </p>

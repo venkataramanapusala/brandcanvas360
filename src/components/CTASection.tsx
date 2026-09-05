@@ -16,7 +16,7 @@ export default function CTASection({
     <section className="relative overflow-hidden bg-dark py-20 sm:py-24">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
       <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[120px]" />
-      <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
+      <div className="relative mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-white/[0.06] px-6 py-14 text-center shadow-2xl shadow-black/20 backdrop-blur-2xl sm:px-10 lg:px-16">
         <h2 className="font-heading text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
           {title}
         </h2>
@@ -24,7 +24,7 @@ export default function CTASection({
         <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href={primaryHref}
-            className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-ink-inverse shadow-lg shadow-primary/30 transition-all duration-300 hover:bg-primaryHover hover:shadow-primary/50"
+            className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-8 py-4 text-base font-extrabold text-ink-inverse shadow-lg shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-primary/50"
           >
             {primaryLabel}
             <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
