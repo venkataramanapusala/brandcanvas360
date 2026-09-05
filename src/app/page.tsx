@@ -59,8 +59,8 @@ export default function Home() {
       <section className="relative section-top-glow overflow-hidden bg-dark">
         <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
           <div className="animate-fade-in-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-orange-300">
-              🚀 Top-Rated Digital Marketing Agency
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-white/[0.08] px-4 py-2 text-sm font-medium text-amber-200">
+              Top-Rated Digital Marketing Agency
             </span>
 
             <h1 className="mt-6 font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -81,13 +81,14 @@ export default function Home() {
                 Get Your Free Audit
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-              <button
+              <a
+                href="#campaign-dashboard"
                 type="button"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-8 py-3.5 text-base font-semibold text-white transition-colors duration-300 hover:border-primary hover:text-primary"
               >
                 <Play className="h-5 w-5" fill="currentColor" />
-                Watch Reel
-              </button>
+                Explore Results
+              </a>
             </div>
 
             <div className="mt-8 flex items-center gap-4">
@@ -198,7 +199,7 @@ export default function Home() {
       </section>
 
       {/* Campaign dashboard theme example */}
-      <section className="relative overflow-hidden bg-surface-base py-20 sm:py-28">
+      <section id="campaign-dashboard" className="relative overflow-hidden bg-surface-base py-20 sm:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgb(255_209_102_/_0.18),transparent_34%),radial-gradient(circle_at_82%_12%,rgb(255_107_74_/_0.16),transparent_30%),linear-gradient(180deg,rgb(59_8_4_/_0.48),transparent)]" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-10 max-w-3xl">

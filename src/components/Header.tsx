@@ -75,7 +75,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-2.5 shadow-2xl shadow-black/10 backdrop-blur-xl lg:px-5 xl:gap-4">
         <Logo />
 
-        <nav className="hidden 2xl:flex 2xl:items-center 2xl:gap-6">
+        <nav className="hidden xl:flex xl:items-center xl:gap-4 2xl:gap-5">
           {menuItems.map((item) =>
             item.dropdown ? (
               <div key={item.label} className="group relative">
@@ -111,10 +111,10 @@ export default function Header() {
           )}
         </nav>
 
-        <div className="hidden shrink-0 2xl:block">
+        <div className="hidden shrink-0 xl:block">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary px-4 py-2.5 text-sm font-extrabold leading-none text-ink-inverse shadow-crimson-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-primaryHover focus:outline-none focus:ring-4 focus:ring-primary/30 2xl:px-5 2xl:py-3"
+            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-primary to-accent px-4 py-2.5 text-sm font-extrabold leading-none text-ink-inverse shadow-crimson-glow transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-primary/30 2xl:px-5 2xl:py-3"
           >
             Get a Free Strategy
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -124,7 +124,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen(true)}
-          className="inline-flex items-center justify-center rounded-lg p-2 text-white 2xl:hidden"
+          className="inline-flex items-center justify-center rounded-lg p-2 text-white xl:hidden"
           aria-label="Open menu"
         >
           <Menu className="h-7 w-7" />
@@ -132,14 +132,14 @@ export default function Header() {
       </div>
 
       <div
-        className={`fixed inset-0 z-50 bg-black/60 transition-opacity duration-300 2xl:hidden ${
+        className={`fixed inset-0 z-50 bg-black/60 transition-opacity duration-300 xl:hidden ${
           isMobileMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-dark shadow-2xl transition-transform duration-300 ease-in-out 2xl:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-dark shadow-2xl transition-transform duration-300 ease-in-out xl:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
