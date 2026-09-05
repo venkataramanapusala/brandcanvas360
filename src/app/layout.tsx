@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} bg-dark font-sans text-slate-300 antialiased`}
+        className={`${inter.variable} ${plusJakartaSans.variable} bg-surface-base font-sans text-ink-secondary antialiased`}
       >
         {/* Google tag (gtag.js) */}
         <Script

@@ -3,37 +3,37 @@
 @tailwind utilities;
 
 :root {
-  --color-brand-base: #711607;
-  --color-brand-rgb: 113 22 7;
+  --color-brand-base: #d92d20;
+  --color-brand-rgb: 217 45 32;
 
-  --color-surface-base: #711607;
-  --color-surface-base-rgb: 113 22 7;
-  --color-surface-deep: #1c0603;
-  --color-surface-deep-rgb: 28 6 3;
+  --color-surface-base: #fffaf7;
+  --color-surface-base-rgb: 255 250 247;
+  --color-surface-deep: #fff4ef;
+  --color-surface-deep-rgb: 255 244 239;
   --color-surface-card: rgb(255 255 255 / 0.05);
   --color-surface-card-rgb: 255 255 255;
   --color-surface-raised: rgb(255 255 255 / 0.04);
   --color-surface-raised-rgb: 255 255 255;
-  --color-surface-overlay: rgb(28 6 3 / 0.82);
-  --color-surface-overlay-rgb: 28 6 3;
+  --color-surface-overlay: rgb(255 255 255 / 0.9);
+  --color-surface-overlay-rgb: 255 255 255;
 
-  --color-text-primary: #ffffff;
-  --color-text-primary-rgb: 255 255 255;
-  --color-text-secondary: #e2e8f0;
-  --color-text-secondary-rgb: 226 232 240;
-  --color-text-muted: #fda4af;
-  --color-text-muted-rgb: 253 164 175;
-  --color-text-inverse: #1c0603;
-  --color-text-inverse-rgb: 28 6 3;
+  --color-text-primary: #11131a;
+  --color-text-primary-rgb: 17 19 26;
+  --color-text-secondary: #536174;
+  --color-text-secondary-rgb: 83 97 116;
+  --color-text-muted: #64748b;
+  --color-text-muted-rgb: 100 116 139;
+  --color-text-inverse: #ffffff;
+  --color-text-inverse-rgb: 255 255 255;
 
-  --color-cta-primary: #fbbf24;
-  --color-cta-primary-rgb: 251 191 36;
-  --color-cta-primary-hover: #f97316;
-  --color-cta-primary-hover-rgb: 249 115 22;
-  --color-cta-secondary: #f97316;
-  --color-cta-secondary-rgb: 249 115 22;
-  --color-cta-secondary-hover: #ea580c;
-  --color-cta-secondary-hover-rgb: 234 88 12;
+  --color-cta-primary: #d92d20;
+  --color-cta-primary-rgb: 217 45 32;
+  --color-cta-primary-hover: #ff5a00;
+  --color-cta-primary-hover-rgb: 255 90 0;
+  --color-cta-secondary: #ff5a00;
+  --color-cta-secondary-rgb: 255 90 0;
+  --color-cta-secondary-hover: #e84900;
+  --color-cta-secondary-hover-rgb: 232 73 0;
 
   --color-success: #4ADE80;
   --color-success-rgb: 74 222 128;
@@ -44,10 +44,10 @@
   --color-info: #67E8F9;
   --color-info-rgb: 103 232 249;
 
-  --color-border-subtle: rgb(255 255 255 / 0.1);
-  --color-border-strong: rgb(251 191 36 / 0.3);
-  --shadow-crimson-soft: 0 24px 80px rgb(28 6 3 / 0.42);
-  --shadow-crimson-glow: 0 0 0 1px rgb(251 191 36 / 0.2), 0 20px 70px rgb(249 115 22 / 0.24);
+  --color-border-subtle: rgb(15 23 42 / 0.1);
+  --color-border-strong: rgb(217 45 32 / 0.2);
+  --shadow-crimson-soft: 0 24px 80px rgb(103 39 24 / 0.12);
+  --shadow-crimson-glow: 0 14px 32px rgb(217 45 32 / 0.18);
 }
 
 html {
@@ -58,50 +58,34 @@ html {
 body {
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   background-color: var(--color-surface-base);
-  background-image: radial-gradient(circle at 50% -10%, #8b1e0b 0%, #711607 42%, #4d0d05 100%);
-  background-attachment: fixed;
+  background-image: radial-gradient(circle at 82% 22%, rgb(255 226 214 / 0.55), transparent 32%);
   color: var(--color-text-primary);
   overflow-x: hidden;
 }
 
 .brand-logo-mark {
   display: block;
-  width: 42px;
-  height: 42px;
-  max-width: 42px;
-  flex: 0 0 42px;
+  width: 38px;
+  height: 38px;
+  max-width: 38px;
+  flex: 0 0 38px;
   overflow: visible;
 }
 
 .brand-logo-title {
   display: block;
-  width: 172px;
-  max-width: min(48vw, 172px);
+  width: 188px;
+  max-width: min(48vw, 188px);
   height: auto;
   flex: 0 1 240px;
 }
 
 @media (min-width: 640px) {
   .brand-logo-mark {
-    width: 46px;
-    height: 46px;
-    max-width: 46px;
-    flex-basis: 46px;
-  }
-
-  .brand-logo-title {
-    width: 190px;
-    max-width: 190px;
-    flex-basis: 190px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .brand-logo-mark {
-    width: 48px;
-    height: 48px;
-    max-width: 48px;
-    flex-basis: 48px;
+    width: 42px;
+    height: 42px;
+    max-width: 42px;
+    flex-basis: 42px;
   }
 
   .brand-logo-title {
@@ -111,18 +95,33 @@ body {
   }
 }
 
-@media (min-width: 1536px) {
+@media (min-width: 1280px) {
   .brand-logo-mark {
-    width: 52px;
-    height: 52px;
-    max-width: 52px;
-    flex-basis: 52px;
+    width: 44px;
+    height: 44px;
+    max-width: 44px;
+    flex-basis: 44px;
   }
 
   .brand-logo-title {
     width: 220px;
     max-width: 220px;
     flex-basis: 220px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .brand-logo-mark {
+    width: 46px;
+    height: 46px;
+    max-width: 46px;
+    flex-basis: 46px;
+  }
+
+  .brand-logo-title {
+    width: 232px;
+    max-width: 232px;
+    flex-basis: 232px;
   }
 }
 
@@ -189,7 +188,7 @@ body {
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+    background: linear-gradient(135deg, #d92d20 0%, #ff5a00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -207,7 +206,7 @@ body {
   }
 
   .card-glass {
-    background: rgb(255 255 255 / 0.05);
+    background: rgb(255 255 255 / 0.72);
     border: 1px solid var(--color-border-subtle);
     backdrop-filter: blur(16px);
   }
