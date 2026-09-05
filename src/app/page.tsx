@@ -59,18 +59,17 @@ export default function Home() {
       <section className="relative section-top-glow overflow-hidden bg-dark">
         <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
           <div className="animate-fade-in-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-orange-300">
-              🚀 Top-Rated Digital Marketing Agency
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-bold uppercase tracking-wide text-orange-300">
+              360° Digital Growth Partner
             </span>
 
             <h1 className="mt-6 font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              We Drive <span className="text-gradient">Measurable Growth</span> for Scaling Brands
+              Turn your brand into a <span className="text-gradient">growth engine.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-base text-slate-300 sm:text-lg">
-              BrandCanvas360 crafts custom SEO, paid media, and content strategies tailored to your
-              business goals — turning clicks into customers and data into decisions that compound
-              growth quarter after quarter.
+              BrandCanvas360 helps businesses attract attention, build trust and generate measurable
+              growth through smart digital marketing, creative content and performance-driven strategies.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -78,7 +77,7 @@ export default function Home() {
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-ink-inverse shadow-lg shadow-primary/30 transition-all duration-300 hover:bg-primaryHover hover:shadow-primary/50"
               >
-                Get Your Free Audit
+                Let&apos;s Grow Together
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <button
@@ -86,7 +85,7 @@ export default function Home() {
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-8 py-3.5 text-base font-semibold text-white transition-colors duration-300 hover:border-primary hover:text-primary"
               >
                 <Play className="h-5 w-5" fill="currentColor" />
-                Watch Reel
+                Explore Services
               </button>
             </div>
 
