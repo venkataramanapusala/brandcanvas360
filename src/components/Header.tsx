@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 import { services } from '@/lib/services-data';
 
@@ -45,6 +45,8 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  const [openDesktopDropdown, setOpenDesktopDropdown] = useState<string | null>(null);
+  const desktopNavRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 8);
@@ -60,35 +62,65 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!desktopNavRef.current?.contains(event.target as Node)) {
+        setOpenDesktopDropdown(null);
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpenDesktopDropdown(null);
+      }
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const toggleAccordion = (label: string) => {
     setOpenAccordion((current) => (current === label ? null : label));
   };
 
   return (
     <header
-      className={`site-header sticky top-0 z-50 border-b border-[rgba(212,175,55,0.15)] bg-[rgba(74,14,23,0.95)] backdrop-blur-xl transition-all duration-300 ${
+      className={`site-header sticky top-0 z-50 border-b border-white/10 bg-[rgba(74,14,23,0.95)] backdrop-blur-xl transition-all duration-300 ${
         isScrolled ? 'shadow-[0_12px_30px_rgb(20_0_0_/_0.32)]' : ''
       }`}
     >
       <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-6 py-3 lg:px-8 xl:gap-4 xl:py-4 2xl:gap-6 2xl:px-0 2xl:py-5">
         <Logo />
 
-        <nav className="hidden xl:flex xl:items-center xl:gap-5 2xl:gap-7">
+        <nav ref={desktopNavRef} className="hidden xl:flex xl:items-center xl:gap-5 2xl:gap-7">
           {menuItems.map((item) =>
             item.dropdown ? (
               <div key={item.label} className="group relative">
                 <button
                   type="button"
+                  onClick={() => setOpenDesktopDropdown((current) => (current === item.label ? null : item.label))}
+                  aria-expanded={openDesktopDropdown === item.label}
+                  aria-haspopup="menu"
                   className="flex items-center gap-1 whitespace-nowrap text-sm font-semibold text-white/85 transition-colors duration-300 hover:text-primary"
                 >
                   {item.label}
-                  <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${openDesktopDropdown === item.label ? 'rotate-180' : ''}`} />
                 </button>
-                <div className="invisible absolute left-0 top-full w-72 translate-y-2 rounded-2xl border border-white/10 bg-[#240403]/95 p-2 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div
+                  role="menu"
+                  className={`absolute left-0 top-full w-72 translate-y-2 rounded-2xl border border-white/10 bg-[rgba(91,18,8,0.96)] p-2 shadow-2xl backdrop-blur-xl transition-all duration-300 ${
+                    openDesktopDropdown === item.label ? 'visible translate-y-0 opacity-100' : 'invisible opacity-0'
+                  }`}
+                >
                   {item.dropdown.map((sub) => (
                     <Link
                       key={sub.label}
                       href={sub.href}
+                      onClick={() => setOpenDesktopDropdown(null)}
+                      role="menuitem"
                       className="block rounded-xl px-4 py-2.5 transition-colors duration-300 hover:bg-white/10"
                     >
                       <span className="block text-sm font-semibold text-white">{sub.label}</span>

@@ -57,32 +57,33 @@ export default function Home() {
     <main>
       {/* Hero */}
       <section className="relative section-top-glow overflow-hidden bg-dark">
-        <div className="relative z-10 mx-auto grid max-w-[1500px] grid-cols-1 items-center gap-12 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28 2xl:gap-20 2xl:px-0 2xl:py-32">
-          <div className="animate-fade-in-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-bold uppercase tracking-wide text-orange-300">
+        <div className="relative z-10 mx-auto grid max-w-[1500px] grid-cols-1 items-center gap-12 px-6 pb-16 pt-12 sm:pb-20 sm:pt-16 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:pb-28 lg:pt-11 2xl:gap-20 2xl:px-0 2xl:pb-32 2xl:pt-24">
+          <div className="text-left">
+            <span className="inline-flex animate-fade-in-up items-center rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-amber-400 backdrop-blur-sm">
+              <span className="mr-2 h-2 w-2 animate-pulse rounded-full bg-amber-400" aria-hidden="true" />
               360° Digital Growth Partner
             </span>
 
-            <h1 className="mt-6 max-w-3xl font-heading text-4xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl 2xl:text-8xl">
+            <h1 className="mt-3 max-w-3xl animate-fade-in-up font-heading text-5xl font-extrabold leading-tight tracking-tight text-white [animation-delay:100ms] md:text-6xl 2xl:text-8xl">
               Turn your brand into a <span className="text-gradient">growth engine.</span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-base text-slate-300 sm:text-lg">
+            <p className="mt-6 max-w-xl animate-fade-in-up text-base text-slate-300 [animation-delay:200ms] sm:text-lg">
               BrandCanvas360 helps businesses attract attention, build trust and generate measurable
               growth through smart digital marketing, creative content and performance-driven strategies.
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <div className="mt-8 flex animate-fade-in-up flex-col gap-4 [animation-delay:300ms] sm:flex-row sm:items-center">
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-ink-inverse shadow-lg shadow-primary/30 transition-all duration-300 hover:bg-primaryHover hover:shadow-primary/50 focus:outline-none focus:ring-4 focus:ring-primary/40"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF37] px-6 py-3 font-medium text-gray-900 shadow-lg shadow-primary/30 transition-all duration-200 hover:scale-105 hover:bg-white focus:outline-none focus:ring-4 focus:ring-primary/40"
               >
                 Let&apos;s Grow Together
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white bg-transparent px-8 py-3.5 text-base font-semibold text-white transition-colors duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-4 focus:ring-white/30"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/30"
               >
                 <Play className="h-5 w-5" fill="currentColor" />
                 Explore Services
@@ -102,67 +103,54 @@ export default function Home() {
           </div>
 
           <div className="hero-control-wrap relative">
-            <div className="hero-command-visual relative aspect-[4/5] w-full scroll-mt-40 overflow-hidden rounded-[2rem] border border-borderStrong bg-surface-card shadow-crimson-glow sm:aspect-square">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgb(255_209_102_/_0.34),transparent_24%),radial-gradient(circle_at_78%_22%,rgb(255_107_74_/_0.30),transparent_30%),linear-gradient(135deg,rgb(255_209_102_/_0.20),rgb(129_32_14_/_0.34)_52%,rgb(36_4_3_/_0.62))]" />
-              <div className="absolute inset-x-4 top-6 flex items-center justify-between rounded-2xl border border-white/12 bg-surface-overlay/45 px-4 py-3 backdrop-blur-md sm:inset-x-8 sm:top-8">
+            <div className="hero-command-visual relative w-full scroll-mt-40 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-md sm:p-6">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgb(212_175_55_/_0.2),transparent_35%),linear-gradient(145deg,rgb(255_255_255_/_0.08),transparent_55%)]" />
+              <div className="relative flex items-center justify-between">
                 <div>
-                  <p className="text-[0.55rem] font-bold uppercase tracking-[0.2em] text-primary sm:text-[0.62rem] sm:tracking-[0.28em]">Live Funnel</p>
-                  <p className="mt-1 font-heading text-base font-extrabold text-ink-primary sm:text-lg">Growth Control Room</p>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-amber-400">Live Funnel</p>
+                  <p className="mt-1 font-heading text-lg font-extrabold text-white">Growth Control Room</p>
                 </div>
                 <div className="flex gap-1.5" aria-hidden="true">
-                  <span className="hero-status-dot h-2.5 w-2.5 rounded-full bg-success" />
-                  <span className="hero-status-dot h-2.5 w-2.5 rounded-full bg-warning" />
-                  <span className="hero-status-dot h-2.5 w-2.5 rounded-full bg-accent" />
+                  <span className="hero-status-dot h-2.5 w-2.5 rounded-full bg-amber-400" />
+                  <span className="hero-status-dot h-2.5 w-2.5 rounded-full bg-amber-300" />
+                  <span className="hero-status-dot h-2.5 w-2.5 rounded-full bg-amber-200" />
                 </div>
               </div>
 
-              <div className="absolute left-1/2 top-[45%] h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/35 sm:top-[52%] sm:h-72 sm:w-72">
-                <div className="hero-orbit absolute inset-4 rounded-full border border-white/12">
-                  <span className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-primary shadow-[0_0_26px_rgb(255_209_102_/_0.75)]" />
-                </div>
-                <div className="hero-orbit-reverse absolute inset-12 rounded-full border border-accent/25">
-                  <span className="absolute -right-2 top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-info shadow-[0_0_24px_rgb(103_232_249_/_0.60)]" />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="rounded-[1.5rem] border border-borderSubtle bg-surface-overlay/80 p-4 text-center shadow-crimson-soft backdrop-blur-md sm:rounded-[1.75rem] sm:p-6">
-                    <TrendingUp className="mx-auto h-8 w-8 text-primary sm:h-10 sm:w-10" />
-                    <p className="mt-2 font-heading text-2xl font-extrabold text-ink-primary sm:mt-3 sm:text-3xl">10x</p>
-                    <p className="mt-1 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-ink-muted sm:text-xs sm:tracking-[0.24em]">ROI Lift</p>
+              <div className="relative mt-6 grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="col-span-2 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
+                  <div className="flex items-end justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-wide text-white/60">Revenue influenced</p>
+                      <p className="mt-2 font-heading text-4xl font-extrabold text-white">INR 10 Cr</p>
+                    </div>
+                    <div className="rounded-xl bg-amber-400/10 p-3 text-amber-400">
+                      <TrendingUp className="h-7 w-7" aria-hidden="true" />
+                    </div>
+                  </div>
+                  <div className="mt-5 flex h-10 items-end gap-1.5" aria-hidden="true">
+                    {[35, 52, 43, 65, 58, 82, 74, 100].map((height) => (
+                      <span key={height} className="flex-1 rounded-full bg-amber-400/70" style={{ height: `${height}%` }} />
+                    ))}
                   </div>
                 </div>
-              </div>
-
-              <div className="absolute bottom-5 left-4 right-4 grid grid-cols-3 gap-2 sm:bottom-8 sm:left-8 sm:right-8 sm:gap-3">
                 {[
-                  ['Reach', '2.4M', 'h-12 sm:h-16'],
-                  ['Clicks', '148K', 'h-16 sm:h-24'],
-                  ['Leads', '12.4K', 'h-14 sm:h-20'],
-                ].map(([label, value, height]) => (
-                  <div key={label} className="hero-metric rounded-2xl border border-white/10 bg-surface-overlay/55 p-2 backdrop-blur-md sm:p-3">
-                    <div className="flex h-16 items-end gap-1 sm:h-24 sm:gap-1.5" aria-hidden="true">
-                      <span className="hero-bar h-8 flex-1 rounded-full bg-accent/55 sm:h-10" />
-                      <span className={`hero-bar flex-1 rounded-full bg-primary ${height}`} />
-                      <span className="hero-bar h-10 flex-1 rounded-full bg-info/70 sm:h-14" />
-                    </div>
-                    <p className="mt-1.5 text-[0.5rem] font-bold uppercase tracking-widest text-ink-muted sm:mt-2 sm:text-[0.58rem]">{label}</p>
-                    <p className="font-heading text-xs font-extrabold text-ink-primary sm:text-base">{value}</p>
+                  ['ROAS', '8.4x'],
+                  ['Qualified leads', '12.4K'],
+                  ['Conversion rate', '6.8%'],
+                  ['Growth', '+22%'],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
+                    <p className="text-xs font-medium text-white/60">{label}</p>
+                    <p className="mt-2 font-heading text-2xl font-extrabold text-amber-400">{value}</p>
                   </div>
                 ))}
               </div>
-
-              <div className="absolute left-4 top-28 rounded-2xl border border-white/10 bg-primary px-3 py-2 text-ink-inverse shadow-crimson-glow sm:left-6 sm:top-28 sm:px-4 sm:py-3">
-                <p className="text-[0.62rem] font-extrabold uppercase tracking-widest sm:text-xs">ROAS</p>
-                <p className="font-heading text-xl font-extrabold sm:text-2xl">8.4x</p>
-              </div>
-              <div className="absolute right-4 top-36 rounded-2xl border border-white/10 bg-surface-overlay/70 px-3 py-2 backdrop-blur-md sm:right-6 sm:top-36 sm:px-4 sm:py-3">
-                <p className="text-[0.62rem] font-bold text-ink-muted sm:text-xs">Pipeline</p>
-                <p className="font-heading text-lg font-extrabold text-ink-primary sm:text-xl">INR 10 Cr</p>
-              </div>
             </div>
 
-            <div className="mx-auto mt-5 w-fit rounded-2xl border border-borderStrong bg-surface-overlay px-5 py-3 shadow-crimson-soft sm:mr-6 sm:mt-6 sm:px-6 sm:py-4">
-              <p className="text-sm font-bold text-ink-muted">Average Client Result</p>
-              <p className="font-heading text-xl font-extrabold text-ink-primary sm:text-2xl">10x ROI Increase</p>
+            <div className="mx-auto mt-5 w-fit rounded-2xl border border-amber-500/30 bg-black/40 px-5 py-3 text-white shadow-crimson-soft backdrop-blur-md sm:mr-6 sm:mt-6 sm:px-6 sm:py-4">
+              <p className="text-sm font-bold text-amber-200/80">Average Client Result</p>
+              <p className="font-heading text-xl font-extrabold text-white sm:text-2xl">10x ROI Increase</p>
             </div>
           </div>
         </div>
