@@ -2,8 +2,14 @@ import Link from 'next/link';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import CTASection from '@/components/CTASection';
 import { caseStudies } from '@/lib/case-studies-data';
+import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = {
+  ...createPageMetadata({
+    title: 'Digital Marketing Case Studies | BrandCanvas360',
+    description: 'Real client results from BrandCanvas360. See how our digital marketing strategies drive measurable growth across industries.',
+    path: '/case-studies',
+  }),
   title: 'Case Studies | BrandCanvas360',
   description: 'Real client results from BrandCanvas360 — see how we\u2019ve driven measurable growth across industries.',
 };

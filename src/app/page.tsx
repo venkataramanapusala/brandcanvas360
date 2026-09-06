@@ -1,17 +1,17 @@
-import { Play, ArrowRight, TrendingUp, Users, Target, Search, MousePointerClick, Share2, PenTool, Code2, Mail, Star, CheckCircle2 } from 'lucide-react';
+import { Play, ArrowRight, TrendingUp, Users, Target, MousePointerClick, Star, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import CTASection from '@/components/CTASection';
+import { services } from '@/lib/services-data';
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata = createPageMetadata({
+  title: 'Best Digital Marketing Agency in Vijayawada | BrandCanvas360',
+  description:
+    'BrandCanvas360 helps businesses grow through SEO, paid media, social media, content, and conversion-focused web strategies.',
+  path: '/',
+});
 
 const trustLogos = ['NexaTech', 'Orbit Foods', 'Summit Capital', 'PulseFit', 'Vantage Realty', 'Lumen Retail'];
-
-const services = [
-  { icon: Search, title: 'SEO Optimization', desc: 'Rank higher, get found first, and capture organic demand that compounds every month.', href: '/services/seo' },
-  { icon: MousePointerClick, title: 'PPC Advertising', desc: 'High-intent paid campaigns across Google & Meta engineered for maximum ROAS.', href: '/services/ppc' },
-  { icon: Share2, title: 'Social Media Marketing', desc: 'Build an engaged community and turn followers into loyal, paying customers.', href: '/services/social-media-marketing' },
-  { icon: PenTool, title: 'Content Marketing', desc: 'Story-driven content that builds authority and moves buyers down the funnel.', href: '/services/content-marketing' },
-  { icon: Code2, title: 'Web Development', desc: 'Fast, conversion-first websites and landing pages that turn visits into leads.', href: '/services/web-development' },
-  { icon: Mail, title: 'Email Marketing', desc: 'Automated nurture flows and campaigns that keep your pipeline full.', href: '/services/email-marketing' },
-];
 
 const stats = [
   { value: '350+', label: 'Brands Scaled' },
@@ -75,14 +75,14 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-ink-inverse shadow-lg shadow-primary/30 transition-all duration-300 hover:bg-primaryHover hover:shadow-primary/50"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-ink-inverse shadow-lg shadow-primary/30 transition-all duration-300 hover:bg-primaryHover hover:shadow-primary/50 focus:outline-none focus:ring-4 focus:ring-primary/40"
               >
                 Let&apos;s Grow Together
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-8 py-3.5 text-base font-semibold text-white transition-colors duration-300 hover:border-primary hover:text-primary"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white bg-transparent px-8 py-3.5 text-base font-semibold text-white transition-colors duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-4 focus:ring-white/30"
               >
                 <Play className="h-5 w-5" fill="currentColor" />
                 Explore Services
@@ -90,9 +90,9 @@ export default function Home() {
             </div>
 
             <div className="mt-8 flex items-center gap-4">
-              <div className="flex -space-x-3">
+              <div className="hero-avatars flex -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="h-10 w-10 rounded-full border-2 border-dark bg-gradient-to-br from-primary to-accent" />
+                  <div key={i} className="hero-avatar h-10 w-10 rounded-full border-2 border-primary" />
                 ))}
               </div>
               <p className="text-sm text-slate-300">
@@ -101,7 +101,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="hero-control-wrap relative">
             <div className="hero-command-visual relative aspect-[4/5] w-full scroll-mt-40 overflow-hidden rounded-[2rem] border border-borderStrong bg-surface-card shadow-crimson-glow sm:aspect-square">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgb(255_209_102_/_0.34),transparent_24%),radial-gradient(circle_at_78%_22%,rgb(255_107_74_/_0.30),transparent_30%),linear-gradient(135deg,rgb(255_209_102_/_0.20),rgb(129_32_14_/_0.34)_52%,rgb(36_4_3_/_0.62))]" />
               <div className="absolute inset-x-4 top-6 flex items-center justify-between rounded-2xl border border-white/12 bg-surface-overlay/45 px-4 py-3 backdrop-blur-md sm:inset-x-8 sm:top-8">
@@ -110,9 +110,9 @@ export default function Home() {
                   <p className="mt-1 font-heading text-base font-extrabold text-ink-primary sm:text-lg">Growth Control Room</p>
                 </div>
                 <div className="flex gap-1.5" aria-hidden="true">
-                  <span className="h-2.5 w-2.5 rounded-full bg-success" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-warning" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-accent" />
+                  <span className="hero-status-dot h-2.5 w-2.5 rounded-full bg-success" />
+                  <span className="hero-status-dot h-2.5 w-2.5 rounded-full bg-warning" />
+                  <span className="hero-status-dot h-2.5 w-2.5 rounded-full bg-accent" />
                 </div>
               </div>
 
@@ -138,14 +138,14 @@ export default function Home() {
                   ['Clicks', '148K', 'h-16 sm:h-24'],
                   ['Leads', '12.4K', 'h-14 sm:h-20'],
                 ].map(([label, value, height]) => (
-                  <div key={label} className="rounded-2xl border border-white/10 bg-surface-overlay/55 p-2 backdrop-blur-md sm:p-3">
-                    <div className="flex h-20 items-end gap-1 sm:h-28 sm:gap-1.5" aria-hidden="true">
+                  <div key={label} className="hero-metric rounded-2xl border border-white/10 bg-surface-overlay/55 p-2 backdrop-blur-md sm:p-3">
+                    <div className="flex h-16 items-end gap-1 sm:h-24 sm:gap-1.5" aria-hidden="true">
                       <span className="hero-bar h-8 flex-1 rounded-full bg-accent/55 sm:h-10" />
                       <span className={`hero-bar flex-1 rounded-full bg-primary ${height}`} />
                       <span className="hero-bar h-10 flex-1 rounded-full bg-info/70 sm:h-14" />
                     </div>
-                    <p className="mt-2 text-[0.52rem] font-bold uppercase tracking-widest text-ink-muted sm:mt-3 sm:text-[0.62rem]">{label}</p>
-                    <p className="font-heading text-sm font-extrabold text-ink-primary sm:text-lg">{value}</p>
+                    <p className="mt-1.5 text-[0.5rem] font-bold uppercase tracking-widest text-ink-muted sm:mt-2 sm:text-[0.58rem]">{label}</p>
+                    <p className="font-heading text-xs font-extrabold text-ink-primary sm:text-base">{value}</p>
                   </div>
                 ))}
               </div>
@@ -160,7 +160,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="absolute -bottom-6 left-1/2 w-max -translate-x-1/2 rounded-2xl border border-borderStrong bg-surface-overlay px-5 py-3 shadow-crimson-soft sm:left-auto sm:right-6 sm:translate-x-0 sm:px-6 sm:py-4">
+            <div className="mx-auto mt-5 w-fit rounded-2xl border border-borderStrong bg-surface-overlay px-5 py-3 shadow-crimson-soft sm:mr-6 sm:mt-6 sm:px-6 sm:py-4">
               <p className="text-sm font-bold text-ink-muted">Average Client Result</p>
               <p className="font-heading text-xl font-extrabold text-ink-primary sm:text-2xl">10x ROI Increase</p>
             </div>
@@ -332,7 +332,7 @@ export default function Home() {
             {services.map((service) => (
               <Link
                 key={service.title}
-                href={service.href}
+                href={`/services/${service.slug}`}
                 className="group card-glass relative overflow-hidden rounded-2xl p-8 transition-all duration-300 hover:border-primary/40 hover:bg-white/[0.06]"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-ink-inverse">

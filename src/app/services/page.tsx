@@ -2,8 +2,14 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import CTASection from '@/components/CTASection';
 import { services } from '@/lib/services-data';
+import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = {
+  ...createPageMetadata({
+    title: 'Digital Marketing Services | BrandCanvas360',
+    description: 'Explore BrandCanvas360 digital marketing services: SEO, PPC, social media, content, web development, email marketing, and analytics.',
+    path: '/services',
+  }),
   title: 'Services | BrandCanvas360',
   description: 'Explore BrandCanvas360\u2019s full-funnel digital marketing services — SEO, PPC, social, content, web development, and email marketing.',
 };

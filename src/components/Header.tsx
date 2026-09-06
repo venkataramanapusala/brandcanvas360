@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
+import { services } from '@/lib/services-data';
 
 type DropdownItem = { label: string; href: string; desc?: string };
 type MenuItem = { label: string; href?: string; dropdown?: DropdownItem[] };
@@ -12,14 +13,11 @@ const menuItems: MenuItem[] = [
   { label: 'About', href: '/about' },
   {
     label: 'Services',
-    dropdown: [
-      { label: 'SEO Optimization', href: '/services/seo', desc: 'Rank #1 on Google' },
-      { label: 'PPC Advertising', href: '/services/ppc', desc: 'Paid media that converts' },
-      { label: 'Social Media', href: '/services/social-media-marketing', desc: 'Build your audience' },
-      { label: 'Content Marketing', href: '/services/content-marketing', desc: 'Stories that sell' },
-      { label: 'Web Development', href: '/services/web-development', desc: 'Convert-first websites' },
-      { label: 'Email Marketing', href: '/services/email-marketing', desc: 'Nurture & automate' },
-    ],
+    dropdown: services.map((service) => ({
+      label: service.title,
+      href: `/services/${service.slug}`,
+      desc: service.desc,
+    })),
   },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Pricing', href: '/pricing' },
@@ -68,8 +66,8 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-colors duration-300 ${
-        isScrolled ? 'border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-md' : 'bg-white'
+      className={`site-header sticky top-0 z-50 border-b border-[rgba(212,175,55,0.15)] bg-[rgba(74,14,23,0.95)] backdrop-blur-xl transition-all duration-300 ${
+        isScrolled ? 'shadow-[0_12px_30px_rgb(20_0_0_/_0.32)]' : ''
       }`}
     >
       <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-6 py-3 lg:px-8 xl:gap-4 xl:py-4 2xl:gap-6 2xl:px-0 2xl:py-5">
@@ -81,20 +79,20 @@ export default function Header() {
               <div key={item.label} className="group relative">
                 <button
                   type="button"
-                  className="flex items-center gap-1 whitespace-nowrap text-sm font-semibold text-slate-700 transition-colors duration-300 hover:text-red-700"
+                  className="flex items-center gap-1 whitespace-nowrap text-sm font-semibold text-white/85 transition-colors duration-300 hover:text-primary"
                 >
                   {item.label}
                   <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
                 </button>
-                <div className="invisible absolute left-0 top-full w-72 translate-y-2 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div className="invisible absolute left-0 top-full w-72 translate-y-2 rounded-2xl border border-white/10 bg-[#240403]/95 p-2 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                   {item.dropdown.map((sub) => (
                     <Link
                       key={sub.label}
                       href={sub.href}
-                      className="block rounded-xl px-4 py-2.5 transition-colors duration-300 hover:bg-white/5"
+                      className="block rounded-xl px-4 py-2.5 transition-colors duration-300 hover:bg-white/10"
                     >
-                      <span className="block text-sm font-semibold text-slate-900">{sub.label}</span>
-                      {sub.desc && <span className="block text-xs text-slate-500">{sub.desc}</span>}
+                      <span className="block text-sm font-semibold text-white">{sub.label}</span>
+                      {sub.desc && <span className="block text-xs text-slate-300">{sub.desc}</span>}
                     </Link>
                   ))}
                 </div>
@@ -103,7 +101,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href ?? '/'}
-                className="whitespace-nowrap text-sm font-semibold text-slate-700 transition-colors duration-300 hover:text-red-700"
+                className="whitespace-nowrap text-sm font-semibold text-white/85 transition-colors duration-300 hover:text-primary"
               >
                 {item.label}
               </Link>
@@ -124,7 +122,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen(true)}
-          className="inline-flex items-center justify-center rounded-lg p-2 text-slate-900 xl:hidden"
+          className="inline-flex items-center justify-center rounded-lg p-2 text-primary xl:hidden"
           aria-label="Open menu"
         >
           <Menu className="h-7 w-7" />
@@ -159,7 +157,7 @@ export default function Header() {
           <ul className="flex flex-col gap-1">
             {menuItems.map((item) =>
               item.dropdown ? (
-                <li key={item.label} className="border-b border-white/5 py-1">
+                <li key={item.label} className="border-b border-slate-200 py-1">
                   <button
                     type="button"
                     onClick={() => toggleAccordion(item.label)}
@@ -183,7 +181,7 @@ export default function Header() {
                           key={sub.label}
                           href={sub.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors duration-300 hover:bg-white/5 hover:text-primary"
+                          className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-300 hover:bg-slate-100 hover:text-red-700"
                         >
                           {sub.label}
                         </Link>
@@ -192,7 +190,7 @@ export default function Header() {
                   </div>
                 </li>
               ) : (
-                <li key={item.label} className="border-b border-white/5 py-1">
+                <li key={item.label} className="border-b border-slate-200 py-1">
                   <Link
                     href={item.href ?? '/'}
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -206,7 +204,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="border-t border-white/10 px-6 py-6">
+        <div className="border-t border-slate-200 px-6 py-6">
           <Link
             href="/contact"
             onClick={() => setIsMobileMenuOpen(false)}

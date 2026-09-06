@@ -4,6 +4,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { absoluteUrl, siteUrl } from '@/lib/seo';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,6 +20,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: siteUrl,
   title: 'Best Digital Marketing Agency in Vijayawada | BrandCanvas360',
   description:
     'BrandCanvas360 is a digital marketing agency in Vijayawada helping ambitious brands grow through SEO, Google Ads, social media, content, and conversion-focused web strategies.',
@@ -37,6 +39,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     siteName: 'BrandCanvas360',
+    url: '/',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Best Digital Marketing Agency in Vijayawada | BrandCanvas360',
+    description:
+      'Digital marketing, SEO, paid media, content, and web strategies for measurable growth in Vijayawada and beyond.',
   },
   robots: {
     index: true,
@@ -77,6 +86,9 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'ProfessionalService',
               name: 'BrandCanvas360',
+              url: absoluteUrl('/'),
+              logo: absoluteUrl('/brandcanvas-logo-v2.png'),
+              image: absoluteUrl('/opengraph-image'),
               description: 'Digital marketing agency in Vijayawada providing SEO, paid media, social media, content, and web development services.',
               email: 'hello@brandcanvas360.com',
               telephone: '+91 83095 82333',

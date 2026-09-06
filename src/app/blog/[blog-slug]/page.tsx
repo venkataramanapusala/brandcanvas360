@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, Calendar, Clock, ArrowLeft } from 'lucide-react';
 import CTASection from '@/components/CTASection';
 import { blogPosts, getPostBySlug } from '@/lib/blog-data';
+import { absoluteUrl, createPageMetadata } from '@/lib/seo';
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ 'blog-slug': post.slug }));
@@ -11,7 +12,12 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { 'blog-slug': string } }) {
   const post = getPostBySlug(params['blog-slug']);
   if (!post) return { title: 'Article Not Found | BrandCanvas360' };
-  return { title: `${post.title} | BrandCanvas360`, description: post.excerpt };
+  return createPageMetadata({
+    title: `${post.title} | BrandCanvas360`,
+    description: post.excerpt,
+    path: `/blog/${post.slug}`,
+    type: 'article',
+  });
 }
 
 export default function BlogDetailPage({ params }: { params: { 'blog-slug': string } }) {
@@ -19,9 +25,33 @@ export default function BlogDetailPage({ params }: { params: { 'blog-slug': stri
   if (!post) notFound();
 
   const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const structuredData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.excerpt,
+      datePublished: new Date(post.date).toISOString(),
+      dateModified: new Date(post.date).toISOString(),
+      author: { '@type': 'Person', name: post.author },
+      publisher: { '@type': 'Organization', name: 'BrandCanvas360', url: absoluteUrl('/') },
+      mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+      isAccessibleForFree: true,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: absoluteUrl('/blog') },
+        { '@type': 'ListItem', position: 3, name: post.title, item: absoluteUrl(`/blog/${post.slug}`) },
+      ],
+    },
+  ];
 
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <section className="relative section-top-glow overflow-hidden bg-dark py-20 sm:py-24">
         <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-8">
           <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-orange-300">

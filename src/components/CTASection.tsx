@@ -17,10 +17,10 @@ export default function CTASection({
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
       <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[120px]" />
       <div className="relative mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white px-6 py-14 text-center shadow-crimson-soft lg:px-8">
-        <h2 className="font-heading text-3xl font-extrabold tracking-tight text-ink-primary sm:text-4xl lg:text-5xl">
+        <h2 className="font-heading text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
           {title}
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-base text-ink-muted sm:text-lg">{subtitle}</p>
+        <p className="mx-auto mt-5 max-w-2xl text-base text-slate-600 sm:text-lg">{subtitle}</p>
         <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href={primaryHref}
@@ -31,7 +31,7 @@ export default function CTASection({
           </Link>
           <a
             href="tel:+918309582333"
-            className="inline-flex items-center justify-center rounded-full border border-white/15 px-8 py-4 text-base font-semibold text-white transition-colors duration-300 hover:border-primary hover:text-primary"
+            className="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-4 text-base font-semibold text-slate-800 transition-colors duration-300 hover:border-primary hover:text-red-700"
           >
             Call +91 83095 82333
           </a>

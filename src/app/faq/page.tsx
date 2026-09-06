@@ -31,11 +31,24 @@ const faqCategories = [
   },
 ];
 
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqCategories.flatMap((category) =>
+    category.items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    }))
+  ),
+};
+
 export default function FaqPage() {
   const [openItem, setOpenItem] = useState<string | null>('Getting Started-0');
 
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }} />
       <section className="relative section-top-glow overflow-hidden bg-dark py-20 sm:py-28">
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-8">
           <span className="text-sm font-semibold uppercase tracking-widest text-primary">FAQ</span>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, TrendingUp, CheckCircle2 } from 'lucide-react';
 import CTASection from '@/components/CTASection';
 import { caseStudies, getCaseStudyBySlug } from '@/lib/case-studies-data';
+import { absoluteUrl, createPageMetadata } from '@/lib/seo';
 
 export function generateStaticParams() {
   return caseStudies.map((study) => ({ 'project-slug': study.slug }));
@@ -11,7 +12,12 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { 'project-slug': string } }) {
   const study = getCaseStudyBySlug(params['project-slug']);
   if (!study) return { title: 'Case Study Not Found | BrandCanvas360' };
-  return { title: `${study.title} | BrandCanvas360`, description: study.summary };
+  return createPageMetadata({
+    title: `${study.title} | BrandCanvas360`,
+    description: study.summary,
+    path: `/case-studies/${study.slug}`,
+    type: 'article',
+  });
 }
 
 export default function CaseStudyDetailPage({ params }: { params: { 'project-slug': string } }) {
@@ -19,9 +25,30 @@ export default function CaseStudyDetailPage({ params }: { params: { 'project-slu
   if (!study) notFound();
 
   const otherStudies = caseStudies.filter((s) => s.slug !== study.slug).slice(0, 2);
+  const structuredData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: study.title,
+      description: study.summary,
+      author: { '@type': 'Organization', name: 'BrandCanvas360', url: absoluteUrl('/') },
+      about: { '@type': 'Organization', name: study.client, industry: study.industry },
+      mainEntityOfPage: absoluteUrl(`/case-studies/${study.slug}`),
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+        { '@type': 'ListItem', position: 2, name: 'Case Studies', item: absoluteUrl('/case-studies') },
+        { '@type': 'ListItem', position: 3, name: study.title, item: absoluteUrl(`/case-studies/${study.slug}`) },
+      ],
+    },
+  ];
 
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <section className="relative section-top-glow overflow-hidden bg-dark py-20 sm:py-24">
         <div className="relative z-10 mx-auto max-w-4xl px-6 lg:px-8">
           <Link href="/case-studies" className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-orange-300">

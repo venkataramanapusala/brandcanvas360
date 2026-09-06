@@ -1,7 +1,13 @@
 import { Target, Eye, HeartHandshake, Award, Users2, TrendingUp } from 'lucide-react';
 import CTASection from '@/components/CTASection';
+import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = {
+  ...createPageMetadata({
+    title: 'About Us | BrandCanvas360',
+    description: 'Meet BrandCanvas360, a performance-driven digital marketing agency dedicated to sustainable business growth.',
+    path: '/about',
+  }),
   title: 'About Us | BrandCanvas360',
   description: 'Meet BrandCanvas360 — a performance-driven digital marketing agency dedicated to your growth.',
 };

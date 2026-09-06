@@ -2,16 +2,44 @@
 
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { services } from '@/lib/services-data';
 
 const budgetOptions = ['Under INR 1,50,000/mo', 'INR 1,50,000 - INR 4,00,000/mo', 'INR 4,00,000 - INR 8,00,000/mo', 'INR 8,00,000+/mo'];
-const serviceOptions = ['SEO', 'PPC Advertising', 'Social Media Marketing', 'Content Marketing', 'Web Development', 'Email Marketing', 'Full-Funnel Strategy'];
+const serviceOptions = [...services.map((service) => service.title), 'Full-Funnel Strategy'];
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [formTilt, setFormTilt] = useState('rotateX(0deg) rotateY(0deg)');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const fields = [
+      ['Name', formData.get('name')],
+      ['Email', formData.get('email')],
+      ['Phone', formData.get('phone')],
+      ['Company', formData.get('company')],
+      ['Service', formData.get('service')],
+      ['Budget', formData.get('budget')],
+      ['Goals', formData.get('message')],
+    ]
+      .filter(([, value]) => value)
+      .map(([label, value]) => `${label}: ${value}`)
+      .join('\n');
+
+    window.location.href = `mailto:hello@brandcanvas360.com?subject=${encodeURIComponent(
+      'Free marketing audit request'
+    )}&body=${encodeURIComponent(fields)}`;
     setSubmitted(true);
+  };
+
+  const handleFormPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === 'touch') return;
+
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const rotateY = ((event.clientX - bounds.left) / bounds.width - 0.5) * 5;
+    const rotateX = ((event.clientY - bounds.top) / bounds.height - 0.5) * -5;
+    setFormTilt(`rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`);
   };
 
   return (
@@ -31,15 +59,15 @@ export default function ContactPage() {
 
       <section className="border-t border-white/10 bg-dark py-16 sm:py-20">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-5 lg:px-8">
-          <div className="lg:col-span-2">
+          <div className="contact-info-panel lg:col-span-2">
             <h2 className="font-heading text-2xl font-bold text-white">Contact Information</h2>
             <p className="mt-3 text-sm text-muted">
               Prefer to reach out directly? Use any of the channels below and a member of our team
               will respond promptly.
             </p>
             <div className="mt-8 flex flex-col gap-6">
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+              <div className="contact-info-item flex items-start gap-4">
+                <div className="contact-info-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
@@ -49,8 +77,8 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+              <div className="contact-info-item flex items-start gap-4">
+                <div className="contact-info-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
@@ -60,8 +88,8 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+              <div className="contact-info-item flex items-start gap-4">
+                <div className="contact-info-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
@@ -69,8 +97,8 @@ export default function ContactPage() {
                   <p className="text-sm text-muted">49-5-3, Nayani Square, Inner Ring Road, Payakapuram, Vijayawada-520015</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+              <div className="contact-info-item flex items-start gap-4">
+                <div className="contact-info-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
                   <Clock className="h-5 w-5" />
                 </div>
                 <div>
@@ -81,19 +109,24 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-3">
-            <div className="card-glass rounded-3xl p-8 sm:p-10">
+          <div className="contact-form-perspective lg:col-span-3">
+            <div
+              className="contact-form-card rounded-3xl p-8 sm:p-10"
+              onPointerMove={handleFormPointerMove}
+              onPointerLeave={() => setFormTilt('rotateX(0deg) rotateY(0deg)')}
+              style={{ transform: formTilt }}
+            >
               {submitted ? (
                 <div className="flex flex-col items-center py-12 text-center">
                   <CheckCircle2 className="h-14 w-14 text-primary" />
                   <h3 className="mt-5 font-heading text-2xl font-bold text-white">Thank You!</h3>
                   <p className="mt-3 max-w-sm text-sm text-muted">
-                    Your free audit request has been received. A BrandCanvas360 strategist will reach
-                    out within one business day.
+                    Your email app should now be open with your request. Send the email to have a
+                    BrandCanvas360 strategist follow up within one business day.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <form onSubmit={handleSubmit} className="contact-form-fields flex flex-col gap-5">
                   <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     <div>
                       <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-200">
@@ -101,10 +134,11 @@ export default function ContactPage() {
                       </label>
                       <input
                         id="name"
+                        name="name"
                         type="text"
                         required
                         placeholder="Jane Doe"
-                        className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-primary"
+                        className="contact-form-input w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-primary"
                       />
                     </div>
                     <div>
@@ -113,10 +147,11 @@ export default function ContactPage() {
                       </label>
                       <input
                         id="email"
+                        name="email"
                         type="email"
                         required
                         placeholder="jane@company.com"
-                        className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-primary"
+                        className="contact-form-input w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-primary"
                       />
                     </div>
                   </div>
@@ -128,9 +163,10 @@ export default function ContactPage() {
                       </label>
                       <input
                         id="phone"
+                        name="phone"
                         type="tel"
                         placeholder="+1 (555) 000-0000"
-                        className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-primary"
+                        className="contact-form-input w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-primary"
                       />
                     </div>
                     <div>
@@ -139,9 +175,10 @@ export default function ContactPage() {
                       </label>
                       <input
                         id="company"
+                        name="company"
                         type="text"
                         placeholder="Acme Inc."
-                        className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-primary"
+                        className="contact-form-input w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-primary"
                       />
                     </div>
                   </div>
@@ -152,7 +189,8 @@ export default function ContactPage() {
                     </label>
                     <select
                       id="service"
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-primary"
+                      name="service"
+                      className="contact-form-input w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-primary"
                       defaultValue=""
                     >
                       <option value="" disabled className="text-slate-500">Select a service</option>
@@ -170,7 +208,8 @@ export default function ContactPage() {
                     </label>
                     <select
                       id="budget"
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-primary"
+                      name="budget"
+                      className="contact-form-input w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-primary"
                       defaultValue=""
                     >
                       <option value="" disabled className="text-slate-500">Select a budget range</option>
@@ -188,9 +227,10 @@ export default function ContactPage() {
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       rows={4}
                       placeholder="What are you hoping to achieve in the next 6-12 months?"
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-primary"
+                      className="contact-form-input w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-primary"
                     />
                   </div>
 

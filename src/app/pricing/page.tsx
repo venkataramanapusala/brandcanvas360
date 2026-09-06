@@ -1,8 +1,14 @@
 import Link from 'next/link';
 import { Check, ArrowRight } from 'lucide-react';
 import CTASection from '@/components/CTASection';
+import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = {
+  ...createPageMetadata({
+    title: 'Digital Marketing Pricing | BrandCanvas360',
+    description: 'Transparent, flexible digital marketing packages designed to scale with your business, with no long-term lock-in.',
+    path: '/pricing',
+  }),
   title: 'Pricing | BrandCanvas360',
   description: 'Transparent, flexible digital marketing packages designed to scale with your business — no long-term lock-in.',
 };

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2, HelpCircle } from 'lucide-react';
 import CTASection from '@/components/CTASection';
 import { services, getServiceBySlug } from '@/lib/services-data';
+import { absoluteUrl, createPageMetadata } from '@/lib/seo';
 
 export function generateStaticParams() {
   return services.map((service) => ({ 'service-slug': service.slug }));
@@ -11,10 +12,11 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { 'service-slug': string } }) {
   const service = getServiceBySlug(params['service-slug']);
   if (!service) return { title: 'Service Not Found | BrandCanvas360' };
-  return {
+  return createPageMetadata({
     title: `${service.title} | BrandCanvas360`,
     description: service.desc,
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default function ServiceDetailPage({ params }: { params: { 'service-slug': string } }) {
@@ -22,9 +24,30 @@ export default function ServiceDetailPage({ params }: { params: { 'service-slug'
   if (!service) notFound();
 
   const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const structuredData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: service.title,
+      description: service.desc,
+      serviceType: service.title,
+      provider: { '@type': 'ProfessionalService', name: 'BrandCanvas360', url: absoluteUrl('/') },
+      areaServed: { '@type': 'City', name: 'Vijayawada' },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: absoluteUrl('/services') },
+        { '@type': 'ListItem', position: 3, name: service.title, item: absoluteUrl(`/services/${service.slug}`) },
+      ],
+    },
+  ];
 
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <section className="relative section-top-glow overflow-hidden bg-dark py-20 sm:py-28">
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-8">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/15 text-primary">

@@ -1,7 +1,12 @@
-import { Linkedin, Twitter } from 'lucide-react';
 import CTASection from '@/components/CTASection';
+import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = {
+  ...createPageMetadata({
+    title: 'Our Team | BrandCanvas360',
+    description: 'Meet the strategists, media buyers, and creatives behind BrandCanvas360 client results.',
+    path: '/team',
+  }),
   title: 'Our Team | BrandCanvas360',
   description: 'Meet the strategists, media buyers, and creatives behind BrandCanvas360\u2019s client results.',
 };
@@ -40,14 +45,6 @@ export default function TeamPage() {
                 <h3 className="mt-5 font-heading text-lg font-bold text-white">{member.name}</h3>
                 <p className="text-sm font-medium text-primary">{member.role}</p>
                 <p className="mt-3 text-sm leading-relaxed text-muted">{member.bio}</p>
-                <div className="mt-5 flex items-center justify-center gap-3">
-                  <a href="#" aria-label="LinkedIn" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-colors hover:border-primary hover:text-primary">
-                    <Linkedin className="h-4 w-4" />
-                  </a>
-                  <a href="#" aria-label="Twitter" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-colors hover:border-primary hover:text-primary">
-                    <Twitter className="h-4 w-4" />
-                  </a>
-                </div>
               </div>
             ))}
           </div>

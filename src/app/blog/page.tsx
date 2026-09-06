@@ -2,8 +2,14 @@ import Link from 'next/link';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import CTASection from '@/components/CTASection';
 import { blogPosts } from '@/lib/blog-data';
+import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = {
+  ...createPageMetadata({
+    title: 'Digital Marketing Insights | BrandCanvas360',
+    description: 'Actionable digital marketing insights on SEO, PPC, social media, content, and more from the BrandCanvas360 team.',
+    path: '/blog',
+  }),
   title: 'Blog | BrandCanvas360',
   description: 'Actionable digital marketing insights on SEO, PPC, social media, content, and more from the BrandCanvas360 team.',
 };

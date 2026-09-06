@@ -1,4 +1,15 @@
-import { Search, MousePointerClick, Share2, PenTool, Code2, Mail, type LucideIcon } from 'lucide-react';
+import {
+  BarChart3,
+  Code2,
+  Mail,
+  MessageCircle,
+  MousePointerClick,
+  Palette,
+  PenTool,
+  Search,
+  Share2,
+  type LucideIcon,
+} from 'lucide-react';
 
 export type Service = {
   slug: string;
@@ -12,7 +23,26 @@ export type Service = {
   faqs: { q: string; a: string }[];
 };
 
-export const services: Service[] = [
+const serviceCatalog: Service[] = [
+  {
+    slug: 'branding-design',
+    icon: Palette,
+    title: 'Branding & Design',
+    shortTitle: 'Branding & Design',
+    desc: 'Build a distinctive brand system and creative direction that earns attention and trust.',
+    heroText: 'Turn what makes your business different into a clear, memorable brand your ideal customers recognize and choose.',
+    points: ['Brand strategy & positioning', 'Visual identity systems', 'Campaign creative direction', 'Brand guidelines & templates'],
+    process: [
+      { title: 'Brand Discovery', desc: 'We uncover your market position, customer motivations, and strongest points of difference.' },
+      { title: 'Strategy', desc: 'We define the messaging, personality, and positioning that give your brand a focused point of view.' },
+      { title: 'Identity Design', desc: 'We create a cohesive visual system built to work across every customer touchpoint.' },
+      { title: 'Launch Toolkit', desc: 'We deliver practical guidelines and templates your team can use consistently from day one.' },
+    ],
+    faqs: [
+      { q: 'Can you refresh an existing brand?', a: 'Yes. We can evolve an established identity while preserving the recognition and equity you have already built.' },
+      { q: 'What will we receive at the end?', a: 'You receive your brand strategy, identity assets, usage guidelines, and agreed campaign or social templates.' },
+    ],
+  },
   {
     slug: 'seo',
     icon: Search,
@@ -33,22 +63,22 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: 'ppc',
+    slug: 'performance-marketing',
     icon: MousePointerClick,
-    title: 'Pay-Per-Click Advertising',
-    shortTitle: 'PPC',
-    desc: 'Maximize ROAS with precision-targeted campaigns across Google, Bing, and Meta.',
-    heroText: 'High-intent paid campaigns engineered for maximum ROAS — every rupee tracked, tested, and optimized.',
-    points: ['Google & Bing Ads management', 'Meta & Instagram ads', 'Conversion rate optimization', 'Retargeting & remarketing'],
+    title: 'Performance Marketing',
+    shortTitle: 'Performance Marketing',
+    desc: 'Scale profitable customer acquisition with a measurable, full-funnel media strategy.',
+    heroText: 'Make every marketing rupee accountable with performance programs built to acquire, convert, and scale profitably.',
+    points: ['Full-funnel paid media strategy', 'Channel mix & budget planning', 'Conversion rate optimization', 'Customer acquisition & ROAS tracking'],
     process: [
-      { title: 'Account Audit', desc: 'We analyze your existing spend and identify wasted budget and missed opportunities.' },
-      { title: 'Campaign Build', desc: 'We build targeted campaigns aligned to your highest-value customer segments.' },
-      { title: 'Creative & Copy', desc: 'We craft ad creative and copy proven to stop the scroll and drive clicks.' },
+      { title: 'Growth Audit', desc: 'We assess your acquisition funnel, economics, and current channel performance.' },
+      { title: 'Media Plan', desc: 'We build a channel mix and budget model tied to your commercial goals.' },
+      { title: 'Launch & Learn', desc: 'We activate campaigns, creative tests, and landing-page experiments quickly.' },
       { title: 'Optimize & Scale', desc: 'We continuously test and reallocate budget toward what converts best.' },
     ],
     faqs: [
-      { q: 'What is the minimum ad budget?', a: 'We typically recommend a minimum of INR 1,50,000/month in ad spend to gather meaningful data quickly.' },
-      { q: 'Which platforms do you manage?', a: 'Google Ads, Microsoft/Bing Ads, Meta (Facebook & Instagram), and LinkedIn Ads.' },
+      { q: 'How is performance marketing different from PPC?', a: 'PPC focuses on paid search campaigns. Performance marketing connects paid media, creative, conversion rate optimization, and attribution across the full acquisition funnel.' },
+      { q: 'Which metrics do you optimize for?', a: 'We align reporting with your goals, typically cost per lead or acquisition, conversion rate, revenue, ROAS, and customer lifetime value.' },
     ],
   },
   {
@@ -127,7 +157,61 @@ export const services: Service[] = [
       { q: 'Can you help grow our list too?', a: 'Yes, we build lead magnets and opt-in campaigns to grow your list alongside sending.' },
     ],
   },
+  {
+    slug: 'whatsapp-automation',
+    icon: MessageCircle,
+    title: 'WhatsApp Automation',
+    shortTitle: 'WhatsApp Automation',
+    desc: 'Convert and retain more customers with timely, personalized conversations at scale.',
+    heroText: 'Meet customers where they are with automated WhatsApp journeys that feel useful, personal, and ready to convert.',
+    points: ['WhatsApp Business API setup', 'Lead capture & qualification flows', 'Abandoned-cart & reactivation journeys', 'CRM and campaign integrations'],
+    process: [
+      { title: 'Journey Mapping', desc: 'We map the high-value moments where a WhatsApp message can move customers forward.' },
+      { title: 'Flow Design', desc: 'We write and design compliant conversation flows around your brand voice and customer needs.' },
+      { title: 'Integration', desc: 'We connect WhatsApp with your CRM, store, and lead sources for a continuous customer experience.' },
+      { title: 'Optimize', desc: 'We measure replies, conversions, and opt-outs to improve every automation over time.' },
+    ],
+    faqs: [
+      { q: 'Can WhatsApp integrate with our CRM?', a: 'Yes. We can connect approved WhatsApp platforms to leading CRMs, ecommerce systems, and lead-capture tools.' },
+      { q: 'Will the messages comply with WhatsApp policies?', a: 'Yes. We build opt-in and template-based messaging flows around WhatsApp Business policies and customer consent.' },
+    ],
+  },
+  {
+    slug: 'analytics-reporting',
+    icon: BarChart3,
+    title: 'Analytics & Reporting',
+    shortTitle: 'Analytics & Reporting',
+    desc: 'Turn disconnected marketing data into clear reporting that drives smarter decisions.',
+    heroText: 'Know which channels create real business growth with reliable measurement, decision-ready dashboards, and useful insights.',
+    points: ['GA4 & conversion tracking', 'Marketing dashboard setup', 'Attribution & funnel analysis', 'Monthly insight reporting'],
+    process: [
+      { title: 'Measurement Audit', desc: 'We identify tracking gaps, inconsistent definitions, and reporting blind spots.' },
+      { title: 'Tracking Setup', desc: 'We configure clean conversion events and connect the platforms that matter to your funnel.' },
+      { title: 'Dashboard Build', desc: 'We create simple dashboards that bring acquisition, conversion, and revenue signals together.' },
+      { title: 'Insights & Action', desc: 'We translate the data into priorities your team can act on each month.' },
+    ],
+    faqs: [
+      { q: 'Can you work with our existing reporting tools?', a: 'Yes. We work with GA4, ad platforms, CRM data, Looker Studio, and other widely used reporting tools.' },
+      { q: 'What will our dashboard show?', a: 'It is tailored to your goals, usually covering channel performance, spend, leads, conversion rates, revenue, and return on investment.' },
+    ],
+  },
 ];
+
+const serviceOrder = [
+  'branding-design',
+  'web-development',
+  'seo',
+  'performance-marketing',
+  'social-media-marketing',
+  'content-marketing',
+  'email-marketing',
+  'whatsapp-automation',
+  'analytics-reporting',
+];
+
+export const services = serviceOrder.map((slug) =>
+  serviceCatalog.find((service) => service.slug === slug)!
+);
 
 export function getServiceBySlug(slug: string) {
   return services.find((service) => service.slug === slug);
